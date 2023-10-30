@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" style="background: linear-gradient(#BBF2E8, #9198e5);">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+    <title>Spot Creator</title>
+</head>
+<body>
+    <div id="nav-bar">
+        <div class="nav-items">
+        <a href="localViewer.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+              </svg>
+            <p class="nav-text" style="text-decoration: none; color: white">Local Viewer</p>
+        </a>
+        </div>
+        <div class="nav-items">
+            <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-house" viewBox="0 0 16 16">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+              </svg>
+            <p class="nav-text" style="text-decoration: none; color: white">Home</p>
+            </a>
+        </div>
+        <div class="nav-items">
+            <a href="mapFunction.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                  </svg>
+            <p class="nav-text" style="text-decoration: none; color: white">Spot Creator</p>
+            </a>
+        </div>
+    </div>
+
+
+    <section>
+        <div id="hero" style="height: 40vh;">
+            <div id="hero-sub" class="hero-subt">
+                <h1 id="hero-text" style="margin-bottom: 20px;">Spot Creator</h1>
+                <p id="hero-subtext">A creation tool to create your favorite local spots and share with others!</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="mapdiv">
+            <div id="map"></div>
+
+            <div id="instructions" style="margin-right:25px">
+                <form>
+                    <form>
+                        <div>
+                            <p id="hero-subtext">Use Current Location</p>
+                            <p class="textStyle">
+                                <br>
+                                What would you like to label your location?
+                            </p>
+                            <input maxlength="20" type="text" id="label" class="textbox" placeholder="Park" required>
+                        </div>
+
+                        <div>
+                            <p class="textStyle">
+                                What are some features of this location?
+                            </p>
+                            <input maxlength="30" type="text" id="features" class="textbox" placeholder="Peaceful" required>
+                        </div>
+
+                        <div>
+                            <button id="getDetail" class="getLocationss">Confirm Details</button>
+                        </div>
+
+                        
+                        <div>
+                            <p id="locationResult"></p>
+                        </div>
+                    </form>
+                <div>
+                    <button id="getLocation" class="getLocations">Create Marker <br> With Current Location</button>
+                    <p style="color:white; font-size: small;font-family: Arial; font-weight: bold; font-style: italic; opacity: 50%;">
+                        Click this first and then add in information</p>
+                </div>
+                
+            </form>
+            </div>
+
+            <div>
+                <p id="or">
+                    <br>OR
+                </p>
+            </div>
+            
+            <div id="instructions" style="margin-left: 25px">
+                <form>
+                    <div>
+                        <p id="hero-subtext">Manually Add Location</p>
+                        <p class="textStyle">
+                           <br> What would you like to label your location?
+                        </p>
+                        <input maxlength="20" type="text" id="labels" class="textbox" placeholder="Park" required>
+                    </div>
+
+                    <div>
+                        <p class="textStyle">
+                            What are some features of this location?
+                        </p>
+                        <input maxlength="50" type="text" id="featuress" class="textbox" placeholder="Peaceful" required>
+                    </div>
+
+                    <div>
+                        <p class="textStyle">
+                            What is the street address?
+                        </p>
+                        <input maxlength="20" type="text" id="addresss" class="textbox" placeholder="3291 Scranton Lane" required>
+                    </div>
+
+                    <div>
+                        <p class="textStyle">
+                            What is the zipcode?
+                        </p>
+                        <input maxlength="20" type="text" id="zipcodes" class="textbox" placeholder="10101" required>
+                    </div>
+
+                    <div>
+                        <button id="createLocation" class="getLocationss">Confirm Details</button>
+                        <p style="font-family: Arial; font-weight: bold; font-style: italic; color: white;">Now double click on the map to place a marker!</p>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <script src="script.js"></script></body>
+</html> 

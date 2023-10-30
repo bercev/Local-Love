@@ -1,1 +1,3 @@
 # Local-Love
+
+Local-Love is an interactive map that encourages people to share their favorite places that bring them joy, and help others discover new happy places too! Our user-friendly platform has a spot creator that allows you to mark your interesting places by either filling them in manually or through your current location. You can also add features of the location and add street addresses and zip codes to create a precise location. If you want to find inspiration for places to visit, look no further than our local viewer where you can view local spots around your area or even in the whole world!
